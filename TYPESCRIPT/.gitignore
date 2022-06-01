@@ -1,0 +1,8 @@
+node_modules
+.eslintignore
+.eslintrc.json
+.prettierrc.js
+package-lock.json
+package.json
+tsconfig.json
+.env
