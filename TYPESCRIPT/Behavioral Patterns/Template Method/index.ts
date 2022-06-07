@@ -4,12 +4,6 @@
  * Intent: Defines the skeleton of an algorithm in the superclass but lets
  * subclasses override specific steps of the algorithm without changing its
  * structure.
- *
- * RU: Паттерн Шаблонный метод
- *
- * Назначение: Определяет общую схему алгоритма, перекладывая реализацию
- * некоторых шагов на подклассы. Шаблонный метод позволяет подклассам
- * переопределять отдельные шаги алгоритма без изменения структуры алгоритма.
  */
 
 /**
@@ -18,19 +12,10 @@
  *
  * Concrete subclasses should implement these operations, but leave the template
  * method itself intact.
- *
- * RU: Абстрактный Класс определяет шаблонный метод, содержащий скелет
- * некоторого алгоритма, состоящего из вызовов (обычно) абстрактных примитивных
- * операций.
- *
- * Конкретные подклассы должны реализовать эти операции, но оставить сам
- * шаблонный метод без изменений.
  */
 abstract class AbstractClass {
     /**
      * EN: The template method defines the skeleton of an algorithm.
-     *
-     * RU: Шаблонный метод определяет скелет алгоритма.
      */
     public templateMethod(): void {
         this.baseOperation1();
@@ -44,8 +29,6 @@ abstract class AbstractClass {
 
     /**
      * EN: These operations already have implementations.
-     *
-     * RU: Эти операции уже имеют реализации.
      */
     protected baseOperation1(): void {
         console.log('AbstractClass says: I am doing the bulk of the work');
@@ -61,8 +44,6 @@ abstract class AbstractClass {
 
     /**
      * EN: These operations have to be implemented in subclasses.
-     *
-     * RU: А эти операции должны быть реализованы в подклассах.
      */
     protected abstract requiredOperations1(): void;
 
@@ -73,11 +54,6 @@ abstract class AbstractClass {
      * mandatory since the hooks already have default (but empty)
      * implementation. Hooks provide additional extension points in some crucial
      * places of the algorithm.
-     *
-     * RU: Это «хуки». Подклассы могут переопределять их, но это не обязательно,
-     * поскольку у хуков уже есть стандартная (но пустая) реализация. Хуки
-     * предоставляют дополнительные точки расширения в некоторых критических
-     * местах алгоритма.
      */
     protected hook1(): void { }
 
@@ -87,10 +63,6 @@ abstract class AbstractClass {
 /**
  * EN: Concrete classes have to implement all abstract operations of the base
  * class. They can also override some operations with a default implementation.
- *
- * RU: Конкретные классы должны реализовать все абстрактные операции базового
- * класса. Они также могут переопределить некоторые операции с реализацией по
- * умолчанию.
  */
 class ConcreteClass1 extends AbstractClass {
     protected requiredOperations1(): void {
@@ -105,9 +77,6 @@ class ConcreteClass1 extends AbstractClass {
 /**
  * EN: Usually, concrete classes override only a fraction of base class'
  * operations.
- *
- * RU: Обычно конкретные классы переопределяют только часть операций базового
- * класса.
  */
 class ConcreteClass2 extends AbstractClass {
     protected requiredOperations1(): void {
@@ -128,10 +97,6 @@ class ConcreteClass2 extends AbstractClass {
  * Client code does not have to know the concrete class of an object it works
  * with, as long as it works with objects through the interface of their base
  * class.
- *
- * RU: Клиентский код вызывает шаблонный метод для выполнения алгоритма.
- * Клиентский код не должен знать конкретный класс объекта, с которым работает,
- * при условии, что он работает с объектами через интерфейс их базового класса.
  */
 function clientCode(abstractClass: AbstractClass) {
     // ...

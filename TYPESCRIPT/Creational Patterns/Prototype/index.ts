@@ -3,19 +3,11 @@
  *
  * Intent: Lets you copy existing objects without making your code dependent on
  * their classes.
- *
- * RU: Паттерн Прототип
- *
- * Назначение: Позволяет копировать объекты, не вдаваясь в подробности их
- * реализации.
  */
 
 /**
  * EN: The example class that has cloning ability. We'll see how the values of
  * field with different types will be cloned.
- *
- * RU: Пример класса, имеющего возможность клонирования. Мы посмотрим как
- * происходит клонирование значений полей разных типов.
  */
 class Prototype {
     public primitive: any;
@@ -31,12 +23,7 @@ class Prototype {
         // requires special treatment. After the cloning is completed, the
         // nested object should point to the cloned object, instead of the
         // original object. Spread operator can be handy for this case.
-        //
-        // RU: Клонирование объекта, который имеет вложенный объект с обратной
-        // ссылкой, требует специального подхода. После завершения клонирования
-        // вложенный объект должен указывать на клонированный объект, а не на
-        // исходный объект. Для данного случая хорошо подойдёт оператор
-        // расширения (spread).
+
         clone.circularReference = {
             ...this.circularReference,
             prototype: { ...this },
@@ -56,8 +43,6 @@ class ComponentWithBackReference {
 
 /**
  * EN: The client code.
- *
- * RU: Клиентский код.
  */
 function clientCode() {
     const p1 = new Prototype();

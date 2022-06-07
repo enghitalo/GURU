@@ -3,53 +3,39 @@
  *
  * Intent: Lets you traverse elements of a collection without exposing its
  * underlying representation (list, stack, tree, etc.).
- *
- * RU: Паттерн Итератор
- *
- * Назначение: Даёт возможность последовательно обходить элементы составных
- * объектов, не раскрывая их внутреннего представления.
  */
 
 interface Iterator<T> {
     // EN: Return the current element.
-    //
-    // RU: Возврат текущего элемента.
+    
     current(): T;
 
     // EN: Return the current element and move forward to next element.
-    //
-    // RU: Возврат текущего элемента и переход к следующему элементу.
+    
     next(): T;
 
     // EN: Return the key of the current element.
-    //
-    // RU: Возврат ключа текущего элемента.
+    
     key(): number;
 
     // EN: Checks if current position is valid.
-    //
-    // RU: Проверяет корректность текущей позиции.
+    
     valid(): boolean;
 
     // EN: Rewind the Iterator to the first element.
-    //
-    // RU: Перемотка Итератора к первому элементу.
+    
     rewind(): void;
 }
 
 interface Aggregator {
     // EN: Retrieve an external iterator.
-    //
-    // RU: Получить внешний итератор.
+    
     getIterator(): Iterator<string>;
 }
 
 /**
  * EN: Concrete Iterators implement various traversal algorithms. These classes
  * store the current traversal position at all times.
- *
- * RU: Конкретные Итераторы реализуют различные алгоритмы обхода. Эти классы
- * постоянно хранят текущее положение обхода.
  */
 
 class AlphabeticalOrderIterator implements Iterator<string> {
@@ -59,17 +45,11 @@ class AlphabeticalOrderIterator implements Iterator<string> {
      * EN: Stores the current traversal position. An iterator may have a lot of
      * other fields for storing iteration state, especially when it is supposed
      * to work with a particular kind of collection.
-     *
-     * RU: Хранит текущее положение обхода. У итератора может быть множество
-     * других полей для хранения состояния итерации, особенно когда он должен
-     * работать с определённым типом коллекции.
      */
     private position: number = 0;
 
     /**
      * EN: This variable indicates the traversal direction.
-     *
-     * RU: Эта переменная указывает направление обхода.
      */
     private reverse: boolean = false;
 
@@ -114,9 +94,6 @@ class AlphabeticalOrderIterator implements Iterator<string> {
 /**
  * EN: Concrete Collections provide one or several methods for retrieving fresh
  * iterator instances, compatible with the collection class.
- *
- * RU: Конкретные Коллекции предоставляют один или несколько методов для
- * получения новых экземпляров итератора, совместимых с классом коллекции.
  */
 class WordsCollection implements Aggregator {
     private items: string[] = [];
@@ -146,10 +123,6 @@ class WordsCollection implements Aggregator {
  * EN: The client code may or may not know about the Concrete Iterator or
  * Collection classes, depending on the level of indirection you want to keep in
  * your program.
- *
- * RU: Клиентский код может знать или не знать о Конкретном Итераторе или
- * классах Коллекций, в зависимости от уровня косвенности, который вы хотите
- * сохранить в своей программе.
  */
 const collection = new WordsCollection();
 collection.addItem('First');
